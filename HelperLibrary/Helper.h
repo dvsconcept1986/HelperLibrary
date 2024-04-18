@@ -16,7 +16,8 @@ namespace Helper
 
             // Check if input is a valid integer
             if (std::cin.fail()) {
-                std::cin.clear(); // Clear error flags
+                //Clear input buffer while integer is invalid
+                std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
                 std::cout << "Invalid input. Please enter a valid integer.\n";
             }
@@ -30,6 +31,10 @@ namespace Helper
                 }
             }
         } while (!isValid);
+
+        // Clear input buffer after successful validation
+        std::cin.clear(); 
+        std::cin.ignore();
 
         return userInput;
     }
