@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <limits>
+#include <cstdlib>
+#include <ctime>
 
 namespace Helper
 {
@@ -30,6 +32,25 @@ namespace Helper
         } while (!isValid);
 
         return userInput;
+    }
+    
+    //Custom function to print 32-bit binary equivalent of an integer
+    void PrintBinary(int num) {
+        for (int i = 31; i >= 0; --i) {
+            int bit = (num >> i) & 1;
+            std::cout << bit;
+            if (i % 4 == 0) std::cout << ' '; // Add a space every 4 bits for readability
+        }
+    }
+
+    int RandomNumberInRange(int minRange, int maxRange) {
+        // Seed the random number generator with current time
+        std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+        // Generate a random number within the specified range
+        int randomNumber = minRange + std::rand() % (maxRange - minRange + 1);
+
+        return randomNumber;
     }
 
 }

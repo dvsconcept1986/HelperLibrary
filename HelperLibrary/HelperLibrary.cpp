@@ -16,6 +16,18 @@ int main()
     std::cout << "You entered: " << userInput << std::endl;
 
 
+    //Testing PrintBinary function from the namespace
+    PrintBinary(345);
+
+
+    //Testing the PrintRandomNumberInRange function from the namespace
+    int minRandRange = 134;
+    int maxRandRange = 1006;
+    //Could also substitute the above declarations with code to request userInput of the min and max for the range
+
+    // Print a random number between minRange and maxRange
+    std::cout << "\nRandom number between " << minRandRange << " and " << maxRandRange << ": " << RandomNumberInRange(minRandRange, maxRandRange) << std::endl;
+
 
     return 0;
 }
